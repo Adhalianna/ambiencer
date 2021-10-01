@@ -14,7 +14,7 @@ static EAR_SPACING: f32 = 5.0;
 
 pub struct Track {
     stream: OutputStreamHandle,
-    sink: Sink,
+    pub sink: Sink,
     /// `volume` of the `Track` is the base volume to be used
     /// rather than the volume of a `rodio::Sink` which may vary
     /// when a `Stage` transition occures.
@@ -26,7 +26,7 @@ pub struct Track {
 /// Ambiencer's `Sink` enum is used as an additional layer of
 /// abstraction over `rodio::Sink` and `rodio::SpatialSink`
 /// which oddly do not share a trait.
-enum Sink {
+pub enum Sink {
     Simple(SimpleSink),
     Spatial(SpatialSink),
 }
